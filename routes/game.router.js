@@ -7,6 +7,7 @@ const { seccionProteted } = require("../middlewares/credentials.middlewares");
 const {
   creategameValidator,
   updategameValidator,
+  createCommentValidator,
 } = require("../middlewares/gameValidator.middleware");
 const { existGame } = require("../middlewares/userExist.middlewares");
 
@@ -22,7 +23,7 @@ gameRouter.get("/", getGame);
 
 gameRouter.use(seccionProteted);
 gameRouter.post("/", creategameValidator, createGame);
-gameRouter.post("/reviews/:gameId", createComment);
+gameRouter.post("/reviews/:gameId", createCommentValidator, createComment);
 
 gameRouter
   .use("/:id", existGame)

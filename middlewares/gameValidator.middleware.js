@@ -23,4 +23,13 @@ const updategameValidator = [
   checkedResult,
 ];
 
-module.exports = { creategameValidator, updategameValidator };
+const createCommentValidator = [
+  body("comment").notEmpty().withMessage("comment cannot be null"),
+  checkedResult,
+];
+
+module.exports = {
+  creategameValidator,
+  updategameValidator,
+  createCommentValidator,
+};
